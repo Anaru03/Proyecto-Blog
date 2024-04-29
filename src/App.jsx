@@ -7,7 +7,7 @@ function Header() {
       <div className="contenedor contenedor-nav">
         <img
           className="nav-logo"
-          src="src/IMG/escudo.jpg"
+          src="src/assets/escudo.jpg"
           alt="Imagen del logo"
         />
       </div>
