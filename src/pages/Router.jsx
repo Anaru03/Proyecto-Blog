@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import CryptoJS from 'crypto-js'
 import Login from '@pages/Login';
-import Dashboard from '@pages/Homepage';
+import Dashboard from '@pages/Dashboard';
 import Reporte from '@pages/Reporte';
 
 function Router() {
-    const [page, setPage] = useState("homepage")
+    const [page, setPage] = useState("dashboard")
     const [loggedin, setLoggedIn] = useState(false)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -81,7 +81,7 @@ function Router() {
 
     let contenido;
     switch (page) {
-        case "homepage":
+        case "dashboard":
             contenido = <Dashboard />
             break;
 
@@ -97,7 +97,7 @@ function Router() {
         <div>
             <nav>
                 <b>{user}</b> |
-                <a href="#" onClick={() => navegar("homepage")}>Dashboard</a> |
+                <a href="#" onClick={() => navegar("dashboard")}>Dashboard</a> |
                 <a href="#" onClick={() => navegar("reporte")}>Reporte</a> |
                 <a href="#" onClick={salir}>Salir</a>
             </nav>

@@ -1,6 +1,6 @@
-import useNavigate from '@hooks/useNavigate'
 import useToken from '@hooks/useToken'
-import Nav from '@components/Nav'
+import useNavigate from '@hooks/useNavigate'
+import Nav from "@components/Nav";
 
 import Login from '@pages/Login';
 import Logout from '@pages/Logout';
