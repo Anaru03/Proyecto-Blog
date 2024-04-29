@@ -13,4 +13,9 @@ export default defineConfig({
     fragment: 'React.Fragment',
     jsxRuntime: 'classic',
   },
+  resolve: {
+    alias: {
+      '@pages': '/src/pages',
+    }
+  }
 })
