@@ -1,3 +1,5 @@
+import Potterhead from '@assets/potterhead.svg'
+
 function Comunidad() {
     return (
         <div>
@@ -7,6 +9,9 @@ function Comunidad() {
                 Participan en discusiones, eventos, y comparten su amor por la saga a través de diversas plataformas en línea y fuera de línea. 
                 La comunidad Potterhead es diversa y abarca a personas de todas las edades, antecedentes y ubicaciones geográficas 
                 que comparten una conexión especial con la historia de Harry Potter y su mundo mágico.</p>
+                <div className="text-center">
+                <img src={Potterhead} alt="Potterhead" />
+            </div>
         </div>
     )
 }
