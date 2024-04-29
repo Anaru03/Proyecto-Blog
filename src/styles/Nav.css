@@ -1,6 +1,7 @@
 .navbar-brand img {
-    max-width: 100px; 
+    max-width: 70px; 
     height: auto; 
+    margin-right: 20px; 
 }
 
 .navbar-brand {
@@ -33,5 +34,5 @@
 }
 
 .navbar-text {
-    margin-left: 10px;
+    margin-left: 0px;
 }

@@ -17,20 +17,20 @@ const Nav = () => {
         <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <div className="container-fluid">
                 <div className="navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto">
-                    <a className="navbar-brand">
-                    <img src={LogoEscudo} alt="Logo del Escudo" className="img-fluid" />
-                </a>
-                        <li className="nav-item">
+                    <div className="navbar-nav ms-auto">
+                        <a className="navbar-brand">
+                            <img src={LogoEscudo} alt="Logo del Escudo" className="img-fluid" />
+                        </a>
+                        <div className="nav-item">
                             <a className={page == "/" ? "nav-link active" : "nav-link"} onClick={() => navigate('/')}>
                                 <i className="fa-solid fa-house-chimney"></i> Home
                             </a>
-                        </li>
-                        <li className="nav-item">
+                        </div>
+                        <div className="nav-item">
                             <a className={page == "/comunidad" ? "nav-link active" : "nav-link"} onClick={() => navigate('/comunidad')}>
                             <i className="fa-solid fa-user-group"></i> Comunidad
                             </a>
-                        </li>
+                        </div>
                         {
                             isLoggedIn ? (
                                 <>
@@ -46,14 +46,14 @@ const Nav = () => {
                                     </li>
                                 </>
                             ) : (
-                                <li className="nav-item">
+                                <div className="nav-item">
                                     <a className={page == "/login" ? "nav-link active" : "nav-link"} onClick={() => navigate('/login')}>
                                         <i className="fa-solid fa-right-to-bracket"></i> Ingresar
                                     </a>
-                                </li>
+                                </div>
                             )
                         }
-                    </ul>
+                    </div>
                     {
                         isLoggedIn ? (
                             <span className="navbar-text">
