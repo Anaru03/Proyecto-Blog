@@ -1,7 +1,7 @@
 import useNavigate from "@hooks/useNavigate"
 import useToken from "@hooks/useToken"
 import LogoEscudo from '@assets/escudo.jpg'
-import '@styles/App.css';
+import '@styles/Nav.css';
 
 const Nav = () => {
     const { isLoggedIn, getRawToken } = useToken()
@@ -14,24 +14,21 @@ const Nav = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
             <div className="container-fluid">
-                <a className="navbar-brand">
-                    <img src={LogoEscudo} alt="Logo del Escudo" />
+                <div className="navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ms-auto">
+                    <a className="navbar-brand">
+                    <img src={LogoEscudo} alt="Logo del Escudo" className="img-fluid" />
                 </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                        <a className={page == "/" ? "nav-link active" : "nav-link"} onClick={() => navigate('/')}>
+                            <a className={page == "/" ? "nav-link active" : "nav-link"} onClick={() => navigate('/')}>
                                 <i className="fa-solid fa-house-chimney"></i> Home
                             </a>
                         </li>
                         <li className="nav-item">
                             <a className={page == "/comunidad" ? "nav-link active" : "nav-link"} onClick={() => navigate('/comunidad')}>
-                            <i class="fa-solid fa-user-group"></i> Comunidad
+                            <i className="fa-solid fa-user-group"></i> Comunidad
                             </a>
                         </li>
                         {
