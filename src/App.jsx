@@ -1,5 +1,8 @@
+import '@styles/App.css'
+import { TokenProvider } from '@hooks/useToken'
+import { NavigationProvider } from '@hooks/useNavigate'
+import Router from './router'
 import React, { useState, useEffect } from 'react';
-import './App.css';
 
 function Header() {
   return (
@@ -104,12 +107,15 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Header />
-      <Menu />
-      <Posts posts={posts} />
-      <Footer />
-    </>
+    <TokenProvider>
+      <NavigationProvider>
+        <Header />
+        <Menu />
+        <Router />
+        <Posts posts={posts} />
+        <Footer />
+      </NavigationProvider>
+    </TokenProvider>
   );
 }
 

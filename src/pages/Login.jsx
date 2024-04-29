@@ -1,8 +1,35 @@
-function Login({ ingresar, setUsername, setPassword}) {
-  return (
-    <div>
-      <h1>Login</h1>
-      <p>
+import { useState } from 'react'
+import CryptoJS from 'crypto-js'
+import useNavigate from '@hooks/useNavigate'
+
+function Login() {
+    const { navigate } = useNavigate()
+    const [username, setUsername] = useState()
+    const [password, setPassword] = useState()
+    const ingresar = async () => {
+        const response = await fetch("http://127.0.0.1:22428/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: CryptoJS.MD5(password).toString()
+            })
+        })
+
+        if (!response.ok) {
+            alert("Usuario inválido, intentalo nuevamente")
+            return;
+        }
+
+        navigate('/dashboard')
+    }
+
+    return (
+        <div>
+            <h1>Login</h1>
+            <p>
                 <input type="text" placeholder="Usuario" onChange={(e) => setUsername(e.target.value)} />
             </p>
             <p>
