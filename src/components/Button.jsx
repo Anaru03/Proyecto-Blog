@@ -1,9 +1,11 @@
-function Button({ text, color, onClick }) {
+import React from 'react';
+
+function Button({ text, color, onClick, className }) {
     return (
-        <button onClick={onClick} className={`btn btn-` + color}>
+        <button onClick={onClick} className={`btn btn-${color} ${className}`}>
             {text}
         </button>
-    )
+    );
 }
 
-export default Button
+export default Button;

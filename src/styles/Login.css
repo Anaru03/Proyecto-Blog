@@ -6,3 +6,21 @@
     margin: auto; /* Centrar en la página */
     max-width: 800px; /* Ancho máximo del contenedor */
 }
+
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    margin-bottom: 5px; 
+    display: block; 
+}
+
+.button-padding {
+    padding: 5px 10px;
+}
+
+.input-group label {
+    color: rgb(72, 4, 0);
+}

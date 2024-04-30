@@ -23,3 +23,17 @@ img {
     max-width: 50%;
     height: auto;
 }
+
+.container {
+    background-color: rgba(181, 147, 13, 0.5);
+    padding: 20px; /* Espacio alrededor del contenido */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    margin: auto; /* Centrar en la página */
+    max-width: 800px; /* Ancho máximo del contenedor */
+}
+
+.center-img {
+    display: block; /* Hace que la imagen se comporte como un bloque */
+    margin: auto; /* Centra la imagen horizontalmente */
+}

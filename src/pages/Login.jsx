@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CryptoJS from 'crypto-js'
 import useToken from '@hooks/useToken'
 import useNavigate from '@hooks/useNavigate'
+import '@styles/Login.css'
 
 import Input from '@components/Input'
 import Button from '@components/Button'
@@ -42,23 +43,29 @@ function Login() {
     }
 
     return (
-        <div>
+        <div className='container'>
             <h1>Login</h1>
-            <Input
-                label="Usuario"
-                type="text"
-                value={username}
-                onChange={(value) => setUsername(value)}
-            />
+            <div className="input-group">
+                <label htmlFor="username">Usuario</label>
+                <Input
+                    id="username"
+                    type="text"
+                    value={username}
+                    onChange={(value) => setUsername(value)}
+                />
+            </div>
 
-            <Input
-                label="Contraseña"
-                type="password"
-                value={password}
-                onChange={(value) => setPassword(value)}
-            />
+            <div className="input-group">
+                <label htmlFor="password">Contraseña</label>
+                <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(value) => setPassword(value)}
+                />
+            </div>
 
-            <Button text="Ingresar" color="primary" onClick={processLogin} />
+            <Button text="Ingresar" color="primary" onClick={processLogin} className="button-padding" />
         </div>
     )
 }

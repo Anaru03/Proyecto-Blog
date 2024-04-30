@@ -22,7 +22,7 @@ img  {
 
 
 h1, h2 {
-  color: gray;
+  color: rgb(0, 0, 0);
 }
 
 h1 {
@@ -249,3 +249,4 @@ footer {
   padding: 10px;
   color: rgb(255, 221, 0);
 }
+
