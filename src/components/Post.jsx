@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
+import '@styles/Post.css';
 
-const Post = ({ post, onSelectPost }) => {
-    const date = new Date(post.created_at);
+const Post = ({ id, title, content, created_at, images_content, author_name }) => {
+    const date = new Date(created_at);
     const dateString = date.toLocaleDateString("es-ES", {
         year: "numeric",
         month: "long",
@@ -15,25 +16,16 @@ const Post = ({ post, onSelectPost }) => {
     const dateTimeString = `${dateString} a las ${timeString}`;
 
     return (
-        <div
-            key={post.id}
-            className="post-container"
-            onClick={() => onSelectPost(post.id)}
-        >
-            <h3 className="post-title">
-                <span>{post.id} :{" "}</span>
-                {post.title}
-            </h3>
-            <p className="post-created">Creado: {dateTimeString}</p>
-            {post.bannerImageB64 && (
-                <img
-                    src={post.bannerImageB64}
-                    alt="imagen"
-                    className="post-image"
-                />
-            )}
-            <p>{post.content}</p>
-        </div>
+        <article className="post">
+            <div className="post-Subido"></div>
+            <div className="contenido-post">
+                <h2>{id}: {title}</h2>
+                <p>{content}</p>
+                <p>{dateTimeString}</p>
+                <img src={images_content} alt="imagen" />
+                <p className="post-author">Autor: {author_name}</p>
+            </div>
+        </article>
     );
 };
 

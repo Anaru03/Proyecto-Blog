@@ -1,0 +1,51 @@
+.post {
+    background: rgba(181, 147, 13, 0.5);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 300ms ease;
+    cursor: default;
+    margin-bottom: 10px;
+  }
+  
+  .post-Subido {
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 16rem;
+  }
+  
+  .contenido-post {
+    margin-top: 1.5rem;
+  }
+  
+  .contenido-post h2 {
+    margin: 1rem 0 0.6rem;
+    color: black;
+  }
+  
+  
+  .contenedor-posts img {
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+  }
+  
+  .post-image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  .contenedor-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+  
+  
+@media (min-width: 200px) {
+    .contenedor-posts{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+    }
+  }

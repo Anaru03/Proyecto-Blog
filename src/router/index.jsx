@@ -6,8 +6,6 @@ import Login from '@pages/Login';
 import Logout from '@pages/Logout';
 import Home from '@pages/Homepage';
 import Comunidad from '@pages/Comunidad';
-import Dashboard from '@pages/Dashboard';
-import Reporte from '@pages/Reporte';
 
 const routes = {
     '/': {
@@ -18,14 +16,6 @@ const routes = {
         component: Comunidad,
         requiresAuth: false
     },
-    '/dashboard': {
-        component: Dashboard,
-        requiresAuth: true
-    },
-    '/report': {
-        component: Reporte,
-        requiresAuth: true
-    },
     '/login': {
         component: Login,
         requiresAuth: false
@@ -34,11 +24,6 @@ const routes = {
         component: Logout,
         requiresAuth: false
     },
-    
-    // '/register': {
-    //     component: Register,
-    //     requiresAuth: false
-    // },
 }
 
 function Router() {

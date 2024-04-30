@@ -1,3 +1,4 @@
+/*Basado de: https://react-hook-form.com/docs/useform */
 import { useState } from "react";
 
 export default function useForm(initialState) {
