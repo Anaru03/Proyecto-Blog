@@ -1,71 +1,66 @@
-import { useState } from 'react'
-import CryptoJS from 'crypto-js'
+import useForm from '@hooks/useForm'
+import Input from '@components/Input'
 import useToken from '@hooks/useToken'
 import useNavigate from '@hooks/useNavigate'
+import Buttons from '@components/Button'
+import useApi from '@hooks/useApi';
+import { useEffect } from 'react';
 import '@styles/Login.css'
-
-import Input from '@components/Input'
-import Button from '@components/Button'
 
 function Login() {
     const { setToken } = useToken()
     const { navigate } = useNavigate()
-    const [username, setUsername] = useState()
-    const [password, setPassword] = useState()
+    const {response, execute} = useApi('http://127.0.0.1:22428/login', 'post', null);
+    const {values, handleChange, resetForm} = useForm({username: '', password: ''});
 
-    const processLogin = async () => {
-        const response = await fetch("http://127.0.0.1:22428/login", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username,
-                password: CryptoJS.MD5(password).toString()
-            })
-        })
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(values)
+        execute(values);
+        resetForm();
+    };
 
-        const { access_token } = await response.json()
-
-        if (!response.ok) {
-            alert("Usuario inválido, intentalo nuevamente")
-            return;
+    useEffect(() => {
+        if (response) {
+            console.log(response);
+            setToken(response.data.token);
+            navigate('/dashboard');
         }
-
-        console.log('token: ', access_token)
-
-        setToken(access_token)
-        navigate('/')
-
-        window.location.replace("#/");
-
-        return
-    }
+    }, [response]);
+    
 
     return (
         <div className='container'>
             <h1>Login</h1>
-            <div className="input-group">
+            <form className='form-login' onSubmit={handleSubmit}>           
+                
                 <label htmlFor="username">Usuario</label>
+                <div className="input-group">
                 <Input
-                    id="username"
                     type="text"
-                    value={username}
-                    onChange={(value) => setUsername(value)}
+                    name="username"
+                    value={values.username}
+                    onChange={handleChange}
+                    placeholder="Username"
+                    label="Username"
                 />
-            </div>
-
-            <div className="input-group">
+                </div>
+            
                 <label htmlFor="password">Contraseña</label>
+                <div className="input-group">
                 <Input
-                    id="password"
                     type="password"
-                    value={password}
-                    onChange={(value) => setPassword(value)}
+                    name="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    placeholder="Password"
+                    label="Password"
                 />
-            </div>
+                </div>
 
-            <Button text="Ingresar" color="primary" onClick={processLogin} className="button-padding" />
+
+            <Buttons type="submit" text="Ingresar"></Buttons>
+            </form>
         </div>
     )
 }

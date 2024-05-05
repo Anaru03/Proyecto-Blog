@@ -1,11 +1,11 @@
-import React from 'react';
+import '@styles/Buttons.css';
 
-function Button({ text, color, onClick, className }) {
+const Button = ({ text, onClick, type }) => {
     return (
-        <button onClick={onClick} className={`btn btn-${color} ${className}`}>
+        <button onClick={onClick} type={type}>
             {text}
         </button>
     );
-}
+};
 
 export default Button;

@@ -8,9 +8,9 @@ const Nav = () => {
     const { page, navigate } = useNavigate()
 
     let decodedToken = {}
+
     if (isLoggedIn) {
         decodedToken = getRawToken()
-        console.log(decodedToken)
     }
 
     return (
@@ -22,47 +22,37 @@ const Nav = () => {
                             <img src={LogoEscudo} alt="Logo del Escudo" className="img-fluid" />
                         </a>
                         <div className="nav-item">
-                            <a className={page == "/" ? "nav-link active" : "nav-link"} onClick={() => navigate('/')}>
+                            <a className={page == "/" ? "nav-link active" : "nav-link unactive"} onClick={() => navigate('/')}>
                                 <i className="fa-solid fa-house-chimney"></i> Home
                             </a>
                         </div>
                         <div className="nav-item">
-                            <a className={page == "/comunidad" ? "nav-link active" : "nav-link"} onClick={() => navigate('/comunidad')}>
+                            <a className={page == "/comunidad" ? "nav-link active" : "nav-link unactive"} onClick={() => navigate('/comunidad')}>
                             <i className="fa-solid fa-user-group"></i> Comunidad
                             </a>
                         </div>
-                        {
-                            isLoggedIn ? (
-                                <>
-                                    <li className="nav-item">
-                                        <a className={page == "/report" ? "nav-link active" : "nav-link"} onClick={() => navigate('/report')}>
-                                            <i className="fa-solid fa-chart-line"></i> Reporte
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className={page == "/logout" ? "nav-link active" : "nav-link"} onClick={() => navigate('/logout')}>
-                                            <i className="fa-solid fa-right-from-bracket"></i> Salir
-                                        </a>
-                                    </li>
-                                </>
-                            ) : (
+                        {!isLoggedIn && (
+                            <div className="nav-item">
+                                <a className={page == "/login" ? "nav-link active" : "nav-link unactive"} onClick={() => navigate('/login')}>
+                                    <i className="fa-solid fa-right-to-bracket"></i> Ingresar
+                                </a>
+                            </div>
+                        )}
+                        {isLoggedIn && (
+                            <>
                                 <div className="nav-item">
-                                    <a className={page == "/login" ? "nav-link active" : "nav-link"} onClick={() => navigate('/login')}>
-                                        <i className="fa-solid fa-right-to-bracket"></i> Ingresar
+                                    <a className={page == "/creatP" ? "nav-link active" : "nav-link unactive"} onClick={() => navigate('/report')}>
+                                        <i className="fa-solid fa-chart-line"></i> Reporte
                                     </a>
                                 </div>
-                            )
-                        }
+                                <div className="nav-item">
+                                    <a className={page == "/logout" ? "nav-link active" : "nav-link unactive"} onClick={() => navigate('/logout')}>
+                                        <i className="fa-solid fa-right-from-bracket"></i> Salir
+                                    </a>
+                                </div>                                    
+                            </>
+                        )}                        
                     </div>
-                    {
-                        isLoggedIn ? (
-                            <span className="navbar-text">
-                                <i className="fa-solid fa-user"></i> {decodedToken.name}
-                            </span>
-                        ) : (
-                            <></>
-                        )
-                    }
                 </div>
             </div>
         </nav>
