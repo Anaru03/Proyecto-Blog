@@ -10,7 +10,7 @@ const useApi = (url, method, data = null, headers = null) => {
         try {
             let options = {
                 method: method.toUpperCase(),
-                headers: headers
+                headers: headers || { 'Content-Type': 'application/json' }
             };
             if (dataFetch) {
                 options.body = JSON.stringify(dataFetch);
@@ -31,13 +31,13 @@ const useApi = (url, method, data = null, headers = null) => {
         }
     };
 
-
     useEffect(() => {
         if(data !== dataApi) {
-            fetchData (dataApi) 
+            setDataApi(data);
+            fetchData(data);
         }
-    }, [dataApi]);
-    
+    }, [data]);
+
     return { response, error, isLoading, fetchData };
 };
 
