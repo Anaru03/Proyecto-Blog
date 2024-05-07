@@ -1,0 +1,42 @@
+.deletePost-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.deletePost-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.deletePost-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+.deletePost-page form input[type="text"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.deletePost-page form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.deletePost-page form button {
+    padding: 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.deletePost-page form button:hover {
+    background-color: #c82333;
+}

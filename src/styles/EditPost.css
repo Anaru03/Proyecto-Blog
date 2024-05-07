@@ -1,0 +1,58 @@
+.editPost-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.editPost-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-post input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.editPost-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.editPost-form input,
+.editPost-form content {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ffff00;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.editPost-form input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.editPost-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.editPost-form button {
+    padding: 10px;
+    background-color: #ffdd00;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.editPost-form button:hover {
+    background-color: #0056b3;
+}

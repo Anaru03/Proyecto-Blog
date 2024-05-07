@@ -1,9 +1,8 @@
 /*Basado de: https://react-hook-form.com/docs/useform */
-import { useState } from "react";
+import { useState } from 'react';
 
-export default function useForm(initialState) {
+const useForm = (initialValues) => {
     const [values, setValues] = useState(initialValues);
-
     const handleChange = (event) => {
         setValues({
             ...values,
@@ -12,6 +11,10 @@ export default function useForm(initialState) {
     };
     const resetForm = () => {
         setValues(initialValues);
-    };   
-    return [values, handleChange, resetForm];
-}
+    };
+    const fillForm = (newValues) => {
+        setValues(newValues);
+    }
+    return {values, handleChange, resetForm, fillForm};
+};
+export default useForm;

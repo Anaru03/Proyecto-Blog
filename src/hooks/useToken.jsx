@@ -14,8 +14,11 @@ const TokenContext = createContext({ token: '', useToken: () => { } })
 
 const TokenProvider = ({ children }) => {
     const [token, setToken] = useState(
+        
         localStorage.getItem('access_token') || null
     )
+
+    
 
     useEffect(() => {
         if (token) {

@@ -2,10 +2,15 @@ import useToken from '@hooks/useToken'
 import useNavigate from '@hooks/useNavigate'
 import Nav from "@components/Nav";
 
-import Login from '@pages/Login';
-import Logout from '@pages/Logout';
 import Home from '@pages/Homepage';
 import Comunidad from '@pages/Comunidad';
+import Login from '@pages/Login';
+import Dashboard from '@pages/Dashboard';
+import CreatP from '@pages/CreateP';
+import EditP from '@pages/EditP';
+import DeleteP from '@pages/DeleteP';
+import Logout from '@pages/Logout';
+
 
 const routes = {
     '/': {
@@ -20,9 +25,25 @@ const routes = {
         component: Login,
         requiresAuth: false
     },
+    '/dashboard': {
+        component: Dashboard,
+        requiresAuth: false
+    },
+    '/creatP': {
+        component: CreatP,
+        requiresAuth: true
+    },
+    '/editP': {
+        component: EditP,
+        requiresAuth: true
+    },
+    '/deleteP': {
+        component: DeleteP,
+        requiresAuth: true
+    },
     '/logout': {
         component: Logout,
-        requiresAuth: false
+        requiresAuth: true
     },
 }
 

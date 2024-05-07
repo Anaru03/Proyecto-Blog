@@ -1,10 +1,10 @@
-
+import '@styles/Dashboard.css';
 
 const Dashboard = () => {
   return (
     <div className="container">
       <h1>Dashboard</h1>
-      <p>Página administrativa</p>
+      <p>Bienvenido a la página administrativa Potterhead</p>
     </div>      
     )
 }
